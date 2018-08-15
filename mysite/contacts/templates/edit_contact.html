@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>View/Edit Contact</h1>
+
+<form action="{% url "contacts-new" %}" method="POST">
+  {% csrf_token %}
+  <ul>
+    {{ form.as_ul }}
+  </ul>
+  <input id="save_contact" type="submit" value="Save" />
+</form>
+
+<p></p>
+
+<a href="{% url "contacts-list" %}">Home</a>
+&nbsp; &nbsp; 
+<a href="{% url "contacts-delete" pk=contact.id %}">Delete this Contact</a>
+{% endblock %}
+
